@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">Form</h2>
+
+      <form action = "http://localhost:5000/update_profile" method = post>
+         <fieldset>
+            <legend>Form</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.name.label }}<br>
+               {{ form.name }}
+               <br>
+                {{ form.designation.label }}<br>
+               {{ form.designation }}
+               <br>
+                 {{ form.salary.label }}<br>
+               {{ form.salary }}
+               <br>
+                 {{ form.address.label }}<br>
+               {{ form.address }}
+               <br>
+                 {{ form.pNumber.label }}<br>
+               {{ form.pNumber }}
+               <br>
+                 {{ form.manager.label }}<br>
+               {{ form.manager }}
+               <br>
+                 {{ form.password.label }}<br>
+               {{ form.password }}
+               <br>
+                 {{ form.age.label }}<br>
+               {{ form.age }}
+               <br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+   </body>
+</html>
