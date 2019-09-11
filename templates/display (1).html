@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+  <h3 >Employees List</h3>
+ <br>
+
+      <table border="2" padding = "5" align="center">
+         <thead>
+            <tr>
+               <th>Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for employee in employees %}
+                <tr>
+                  <td>{{ employee.name }}</td>
+                  <td>{{ employee.designation }}</td>
+                   <td>{{ employee.salary }}</td>
+               </tr>
+         {% endfor %}
+         </tbody>
+      </table>
+</body>
+</html>
