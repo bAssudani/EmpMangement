@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>{{ title }} | Project Dream Team</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 </head>
 <body>
-$END$
+
+   <br>
+   <h3 >Employees List</h3>
+ <br>
+
+     <table border="2" padding = "5" align="center">
+         <thead>
+            <tr>
+               <th>Name</th>
+                <th>Designation</th>
+               <th>age</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for  x in rows %}
+                  <td>{{ x[0] }}</a></td>
+                  <td>{{ x[1] }}</td>
+                  <td>{{ x[7] }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+<br>
+ <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
+
 </body>
-</html>

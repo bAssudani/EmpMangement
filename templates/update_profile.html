@@ -1,42 +1,90 @@
 <!doctype html>
 <html>
    <body>
-      <h2 style = "text-align: center;">Form</h2>
+      <h2 style = "text-align: center;">Updation Form</h2>
 
-      <form action = "http://localhost:5000/update_profile" method = post>
-         <fieldset>
-            <legend>Form</legend>
-            {{ form.hidden_tag() }}
 
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
-               {{ form.name.label }}<br>
-               {{ form.name }}
-               <br>
-                {{ form.designation.label }}<br>
-               {{ form.designation }}
-               <br>
-                 {{ form.salary.label }}<br>
-               {{ form.salary }}
-               <br>
-                 {{ form.address.label }}<br>
-               {{ form.address }}
-               <br>
-                 {{ form.pNumber.label }}<br>
-               {{ form.pNumber }}
-               <br>
-                 {{ form.manager.label }}<br>
-               {{ form.manager }}
-               <br>
-                 {{ form.password.label }}<br>
-               {{ form.password }}
-               <br>
-                 {{ form.age.label }}<br>
-               {{ form.age }}
-               <br>
-               {{ form.submit }}
-            </div>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
+{% block body %}
+{% endblock %}
 
-         </fieldset>
-      </form>
+ <fieldset>
+    <form action = "http://localhost:5000/update_profile" method = post>
+ {{ form.csrf_token }}
+       {{ form.name.label }}<br>
+        {{ form.name() }}<br>
+      <br>
+      {% if form.name.errors %}
+        <ul class="errors">{% for error in form.name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+     {{ form.designation.label }}<br>
+       {{ form.designation }}<br>
+<br>
+      {% if form.designation.errors %}
+        <ul class="errors">{% for error in form.designation.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+
+     {{ form.salary.label }}<br>
+           {{ form.salary }}<br>
+         <br>
+      {% if form.salary.errors %}
+        <ul class="errors">{% for error in form.salary.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+
+       {{ form.address.label }}<br>
+         {{ form.address }}<br>
+         <br>
+      {% if form.address.errors %}
+        <ul class="errors">{% for error in form.address.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+
+       {{ form.pNumber.label }}<br>
+         {{ form.pNumber }}<br>
+         <br>
+      {% if form.pNumber.errors %}
+        <ul class="errors">{% for error in form.pNumber.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+
+      {{ form.manager.label }}<br>
+          {{ form.manager }}<br>
+         <br>
+      {% if form.manager.errors %}
+        <ul class="errors">{% for error in form.manager.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+       {{ form.password.label }}<br>
+      {{ form.password }}<br>
+      <br>
+      {% if form.password.errors %}
+        <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+
+       {{ form.age.label }}<br>
+      {{ form.age}}<br>
+      <br>
+        {% if form.age.errors %}
+        <ul class="errors">{% for error in form.age.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
+      {{ form.submit }}
+  </form>
+
+   </fieldset>
+   </div>
+</div>
    </body>
 </html>

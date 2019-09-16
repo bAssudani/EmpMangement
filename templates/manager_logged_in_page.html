@@ -20,12 +20,10 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="{{ url_for('open_page') }}">Home</a></li>
                   <li><a href="{{ url_for('list_employees') }}">Employees</a></li>
                   <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                  <li><a href="{{ url_for('update_profile_details') }}">Update</a></li>
-                  <li><a href="#">Feedback</a></li>
-                  <li><a href="#">Delete</a></li>
+                  <li><a href="{{ url_for('update_profile') }}">Update</a></li>
+                  <li><a href="{{ url_for('feedback_emp') }}">Assesment</a></li>
               </ul>
           </div>
         </div>

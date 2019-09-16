@@ -18,7 +18,7 @@ def create_connection(db_file):
 def enterdata(connectionURL):
     conn = sqlite3.connect(connectionURL)
     c = conn.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS login_details (username text, password text);")
+    c.execute("SELECT FROM Employees  WHERE name LIKE '%XXXX%'  ;")
     c.execute('insert into login_details values ("SuperUser", "SuperUser")')
     c.execute('insert into login_details values ("Manager1", "Manager1Password")')
     c.execute('insert into login_details values ("Manager2", "Manager2Password")')

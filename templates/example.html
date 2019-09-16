@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">Assesment Form</h2>
+
+      {% for message in form.example.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+
+      <form action = "http://localhost:5000/feedback" method = post>
+         <fieldset>
+            <legend>Assesment Form</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+              {{ form.hidden_tag() }}
+                  {{form.name.label}}<br>
+                <br>
+                {{form.name}}
+                <br>
+                <br>
+
+    {{ form.example }}
+    <br>
+                <br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+   <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
+
+   </body>
+</html>
+
+

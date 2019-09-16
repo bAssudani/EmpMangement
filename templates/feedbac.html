@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<!doctype html>
+<html>
+   <body>
+      <h2 style = "text-align: center;">Registration Form</h2>
+
+      {% for message in form.name.errors %}
+         <div>{{ message }}</div>
+      {% endfor %}
+
+
+      <form action = "http://localhost:5000/feedback" method = post>
+         <fieldset>
+            <legend>Registration Form</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+               {{ form.name.label }}<br>
+               {{ form.name }}
+               <br>
+
+                 {{ form.feedback.label }}<br>
+               {{ form.feedback }}
+               <br>
+               {{ form.submit }}
+            </div>
+
+         </fieldset>
+      </form>
+   </body>
 </html>

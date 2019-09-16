@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+
 </head>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
+{% block body %}
+{% endblock %}
 <body>
-$END$
+<p>Feedback is {{feedback}}</p>
+ <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
 </body>
 </html>
