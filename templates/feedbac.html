@@ -3,9 +3,15 @@
    <body>
       <h2 style = "text-align: center;">Registration Form</h2>
 
-      {% for message in form.name.errors %}
-         <div>{{ message }}</div>
-      {% endfor %}
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
 
 
       <form action = "http://localhost:5000/feedback" method = post>
@@ -13,7 +19,7 @@
             <legend>Registration Form</legend>
             {{ form.hidden_tag() }}
 
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
                {{ form.name.label }}<br>
                {{ form.name }}
                <br>
@@ -26,5 +32,9 @@
 
          </fieldset>
       </form>
+      <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
    </body>
 </html>

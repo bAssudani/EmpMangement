@@ -1,22 +1,10 @@
-import os
 import sqlite3
-from bson import ObjectId
 from pymongo import MongoClient
 from redis import Redis
-import pymongo
 import models
-import flask_redis
-import flask
-from flask import Flask
+import logging
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms.validators import DataRequired,  EqualTo
-from flask_wtf import FlaskForm
-from flask_wtf import Form
 from datetime import timedelta
-from flask import session, app
-from flask_login import LoginManager, login_user, logout_user
-from wtforms import PasswordField, StringField, SubmitField, ValidationError, IntegerField, validators, RadioField
 from flask import Flask, request, flash, url_for, redirect, render_template, session
 
 app = Flask(__name__)
@@ -26,10 +14,14 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 app.config['REDIS_HOST'] = 'localhost'
 app.config['REDIS_PORT'] = 6379
 app.config['REDIS_DB'] = 0
-client = MongoClient("mongodb://127.0.0.1:27017") #host uri
-db = client.Assessment    #Select the database
-forms = db.Form #Select the collection name
+
+client = MongoClient("mongodb://127.0.0.1:27017")
+db = client.Assessment
+forms = db.Form
 redis = Redis(app)
+
+log = "LoggerFile.log"
+logging.basicConfig(filename=log,level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %H:%M:%S')
 
 db = SQLAlchemy(app)
 
@@ -83,10 +75,16 @@ def register_page():
 
         f = open("manager.txt", "a")
         f.write(employee.manager + "\n")
-        db.session.add(employee)
-        db.session.commit()
-        flash('You have successfully registered! You may now login.')
-        return redirect(url_for('home_page'))
+        try:
+            db.session.add(employee)
+            db.session.commit()
+            flash('You have successfully registered! You may now login.')
+            logging.info(' registered successfully')
+            return redirect(url_for('home_page'))
+        except Exception as e:
+            logging.info(form.name.data, 'failed to register successfully')
+            return render_template("errors/500.html", error = str(e))
+
     return render_template('/register.html',form = form)
 
 
@@ -94,24 +92,30 @@ def register_page():
 @app.route('/login', methods=['GET', 'POST'])
 def home_page():
     form = models.LoginForm()
-    if form.validate_on_submit():
+    try:
+        if form.validate_on_submit():
 
             employee = Employees.query.filter_by(name=form.name.data).first()
             password=Employees.query.filter_by(password=form.password.data).first()
             if employee is not None and password:
                 if employee.name=="admin":
                     session['name'] = 'admin'
+                    logging.info("logged in as admin")
                     return render_template('/superuser_logged_in_page.html')
                 elif(employee.isManager):
                     session['name'] = employee.name
+                    logging.info("logged in as Manager ")
                     return render_template('/manager_logged_in_page.html',name=employee.name)
                 else:
                     session['name'] = employee.name
+                    logging.info("logged in as employee ")
                     return render_template('/employee_logged_in_page.html',name=employee.name)
             else:
-                print("invalid")
-
-
+                logging.error("failed to log in")
+                flash("invalid username or password")
+    except Exception as e:
+        logging.error("failed to log in")
+        return render_template("errors/500.html", error = str(e))
     return render_template('/home.html',form=form)
 
 
@@ -145,10 +149,15 @@ def add_page():
 
         f = open("manager.txt", "a")
         f.write(employee.manager + "\n")
-        db.session.add(employee)
-        db.session.commit()
-        flash('You have successfully registered! You may now login.')
-        return redirect(url_for('list_employees'))
+        try:
+            db.session.add(employee)
+            db.session.commit()
+            flash('You have successfully added an employee! ')
+            logging.info("employee added successfully")
+            return redirect(url_for('list_employees'))
+        except Exception as e:
+            logging.error("unable to add employee")
+            return render_template("errors/500.html", error = str(e))
     return render_template('/add.html',form = form)
 
 
@@ -156,6 +165,7 @@ def add_page():
 def displayEmp():
         name1=(request.args.get('employee')[11:-1])
         employee = Employees.query.filter_by(name=name1).first()
+        logging.info("employees list displayed")
         return render_template('/display.html',employee=employee)
 
 
@@ -165,11 +175,16 @@ def search_emp():
         searchForm = models.SearchForm()
         employees = Employees.query
         if searchForm.validate_on_submit() :
+          try:
             conn = sqlite3.connect('employees.sqlite3')
             c = conn.cursor()
             c.execute("select * from Employees where name like ?", ('%' + searchForm.name.data + '%',))
             rows = c.fetchall()
+            logging.info("search results shown")
             return render_template('list_employees_search.html', rows=rows)
+          except Exception as e:
+              logging.error("search results couldnt be shown")
+              return render_template("500.html", error=str(e))
 
         return render_template('/search.html',form=searchForm)
 
@@ -183,20 +198,25 @@ def list_employees():
     employee = Employees.query.filter_by(name=logged_in).first()
     if(employee.isManager):
         rows=Employees.query.filter_by(manager=logged_in).all()
+        logging.info("employees list shown")
         return render_template('/list_employees.html', rows=rows)
     else:
+        logging.info("employees list shown")
         return render_template('/list_employees.html', rows=Employees.query.all())
 
 @app.route('/back')
 def back_emp():
-    logged_in=session['name']
-    employee = Employees.query.filter_by(name=logged_in).first()
-    if logged_in=="admin":
+    try:
+        logged_in=session['name']
+        employee = Employees.query.filter_by(name=logged_in).first()
+        if logged_in=="admin":
                     return render_template('/superuser_logged_in_page.html')
-    elif(employee.isManager):
+        elif(employee.isManager):
                     return render_template('/manager_logged_in_page.html',name=employee.name)
-    else:
+        else:
                    return render_template('/employee_logged_in_page.html',name=employee.name)
+    except Exception as e:
+        return render_template('/open.html')
 
 
 @app.route('/del',methods=['GET', 'POST'])
@@ -204,104 +224,140 @@ def del_employees():
     form = models.DeleteForm()
     if request.method == 'POST':
         name = form.name.data
-        employee = Employees.query.get_or_404(name)
-        db.session.delete(employee)
-        db.session.commit()
-        flash('You have successfully deleted the department.')
-        return redirect(url_for('list_employees'))
+        employee = Employees.query.get(name)
+
+        try:
+            if employee :
+
+                db.session.delete(employee)
+                db.session.commit()
+                flash('You have successfully deleted the employee.')
+                logging.info("employee deleted successfully")
+                return redirect(url_for('list_employees'))
+
+            else:
+                logging.error("no employee to delete or couldnt delete")
+                flash("employee not present to delete")
+
+        except Exception as e:
+            logging.error("couldnt delete")
+            return  render_template("500.html", error = str(e))
 
     return render_template('/delete.html', form=form)
 
-'''
-@app.route('/feedback',methods=['GET', 'POST'])
-def feedback_emp():
-    form = FeedbackForm()
-    if request.method == 'POST':
-        name = form.name.data
-        logged_in = session['name']
-        employee = Employees.query.filter_by(name=logged_in).first()
-        rows = Employees.query.filter_by(manager=logged_in).all()
-        for emp in rows:
-            if(emp.name==name):
-                f = open("feedback.txt", "a")
-                f.write( '\n'+form.name.data+"\n"+form.feedback.data)
-                flash("feedback submitted")
-                return redirect(url_for('list_employees'))
-            else:
-                print('no one to give feedback')
-    return render_template('/feedbac.html', form=form)
-'''
+
 @app.route('/feedback',methods=['post','get'])
 def feedback_emp():
     form = models.SimpleForm()
-    if form.validate_on_submit():
-        name = form.name.data
-        logged_in = session['name']
-        employee = Employees.query.filter_by(name=logged_in).first()
-        rows = Employees.query.filter_by(manager=logged_in).all()
-        for emp in rows:
-            if (emp.name == name):
-
-                mydict = {"name": name, "job-knowledge": form.example.data}
-                forms.insert_one(mydict)
-
-                flash("feedback submitted")
-                return redirect(url_for('list_employees'))
+    try:
+        if form.validate_on_submit():
+            name = form.name.data
+            logged_in = session['name']
+            rows = Employees.query.filter_by(manager=logged_in).all()
+            for emp in rows:
+                if (emp.name == name):
+                    mydict = {"name": name, "job-knowledge": form.example.data}
+                    forms.insert_one(mydict)
+                    flash("feedback submitted")
+                    logging.info("feedback submitted ")
+                    return redirect(url_for('list_employees'))
             else:
+                logging.error("cannot give feedback")
                 flash('no one to give feedback')
-
+    except Exception as e:
+        logging.error("couldnt submit feedback")
+        return(str(e))
     return render_template('example.html',form=form)
 
-@app.route('/feedbackShow',methods=['GET', 'POST'])
+@app.route('/feedbackShow', methods=['GET', 'POST'])
 def feedback_view():
         logged_in = session.get('name')
-        f = open("feedback.txt", "r")
-        f1 = f.readlines()
-        if request.method == 'GET':
+        if request.method=='GET':
             todos_1=forms.find( { "name": logged_in } )
+            feedback="no assessment to show"
             for i in todos_1:
                 feedback=(i['job-knowledge'])
-
         return render_template('/Showfeedback.html',feedback=feedback)
+
 
 @app.route('/update_profile_details', methods=['GET', 'POST'])
 def update_profile_details():
     form = models.UpdateForm()
     if request.method == 'POST':
        name=form.name.data
-       employee = Employees.query.get_or_404(name)
-       employee.designation=form.designation.data
-       employee.salary=form.salary.data
-       employee.address=form.address.data
-       employee.pNumber=form.pNumber.data
-       employee.manager=form.manager.data
-       employee.password=form.password.data
-       employee.age=form.age.data
-       db.session.commit()
-       print('You have successfully registered! You may now login.')
-       return redirect(url_for('list_employees'))
-
+       employee = Employees.query.get(name)
+       if employee:
+           employee.designation=form.designation.data
+           employee.salary=form.salary.data
+           employee.address=form.address.data
+           employee.pNumber=form.pNumber.data
+           employee.manager=form.manager.data
+           employee.password=form.password.data
+           employee.age=form.age.data
+           try:
+               db.session.commit()
+               flash('You have successfully updated!')
+               logging.info("profile updated successfully by ",name)
+               return redirect(url_for('list_employees'))
+           except Exception as e:
+                logging.error("profile cannot be updated")
+                flash("cannot update! view details again")
+       else:
+           logging.error("profile cannot be updated")
+           flash("cannot update view name again")
     return render_template('/updateForm.html',form = form)
 
 
 @app.route('/update_profile', methods=['GET', 'POST'])
 def update_profile():
     form = models.UpdateForm()
-    if request.method == 'POST' and form.name.data==session['name']:
+    if request.method == 'POST' :
+      if form.name.data==session['name']:
         name = form.name.data
-        employee = Employees.query.get_or_404(name)
-        employee.designation=form.designation.data
-        employee.salary=form.salary.data
-        employee.address=form.address.data
-        employee.pNumber=form.pNumber.data
-        employee.manager=form.manager.data
-        employee.password=form.password.data
-        employee.age=form.age.data
-        db.session.commit()
-        flash('You have successfully updated! You may now login.')
-        return redirect(url_for('home_page'))
+        employee = Employees.query.get(name)
+        if employee:
+            employee.designation=form.designation.data
+            employee.salary=form.salary.data
+            employee.address=form.address.data
+            employee.pNumber=form.pNumber.data
+            employee.manager=form.manager.data
+            employee.password=form.password.data
+            employee.age=form.age.data
+            try:
+                db.session.commit()
+                flash('You have successfully updated! You may now login.')
+                logging.info("succesfully updated profile by")
+                return redirect(url_for('home_page'))
+            except Exception as e:
+                logging.error("cannot update profile")
+                flash("cannot update! view details again")
+      else:
+            logging.error("cannot update view name gain")
+            flash("cannot update view name again")
 
     return render_template('/update_profile.html',form = form)
+
+@app.route('/givefeedback',methods=['GET',"POST"])
+def give_feedback():
+    form=models.Feedback()
+    if request.method == "POST":
+        manager=form.name.data
+        logged_in=session['name']
+        employee = Employees.query.get(logged_in)
+
+        if(employee.manager==manager):
+            try:
+                f = open("feedback.txt", "a")
+                f.write('\n' + form.name.data + "\n" + form.message.data)
+                flash("feedback submitted successfully")
+                logging.info("feedback submitted successfully for ",form.name.data)
+            except Exception as e:
+                logging.error("cannot submit feedback")
+                flash("cannot submit feedback please try again")
+        else:
+            logging.error("cannot submit feedback")
+            flash("u can give feedback for ur manager only")
+    return render_template('/submitFeedback.html', form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)

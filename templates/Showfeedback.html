@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+a:link, a:visited {
+  background-color: green;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: hot-pink;
+}
+</style>
 
 </head>
 {% with messages = get_flashed_messages() %}
@@ -16,11 +30,23 @@
  {% endwith %}
 {% block body %}
 {% endblock %}
-<body>
-<p>Feedback is {{feedback}}</p>
+ <h3><center>
+
+  <b>ASSESSMENT</b>
+</center></h3>
+<form>
+    <fieldset>
+
+<br>
+<p>Job-Knowledge is {{feedback}}</p>
  <br>
+    </fieldset>
+
+</form>
+<br>
 <center>
      <a href="{{ url_for('back_emp') }}">Back</a>
+     <a href="{{ url_for('give_feedback') }}">Give Feedback</a>
 </center>
 </body>
 </html>

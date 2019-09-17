@@ -3,48 +3,93 @@
    <body>
       <h2 style = "text-align: center;">Add employee Form</h2>
 
-      {% for message in form.name.errors %}
-         <div>{{ message }}</div>
-      {% endfor %}
-
+     {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
 
       <form action = "http://localhost:5000/addEmp" method = post>
          <fieldset>
             <legend>Registration Form</legend>
             {{ form.hidden_tag() }}
 
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
                {{ form.name.label }}<br>
                {{ form.name }}
+                  {% if form.name.errors %}
+        <ul class="errors">{% for error in form.name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                <br>
                 {{ form.designation.label }}<br>
                {{ form.designation }}
                <br>
+               {% if form.designation.errors %}
+        <ul class="errors">{% for error in form.designation.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.salary.label }}<br>
                {{ form.salary }}
                <br>
+                  {% if form.salary.errors %}
+        <ul class="errors">{% for error in form.salary.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.address.label }}<br>
                {{ form.address }}
                <br>
+                 {% if form.address.errors %}
+        <ul class="errors">{% for error in form.address.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.pNumber.label }}<br>
                {{ form.pNumber }}
                <br>
+                {% if form.pNumber.errors %}
+        <ul class="errors">{% for error in form.pNumber.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.manager.label }}<br>
                {{ form.manager }}
                <br>
+                  {% if form.manager.errors %}
+        <ul class="errors">{% for error in form.manager.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.password.label }}<br>
                {{ form.password }}
                <br>
+                 {% if form.password.errors %}
+        <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                 {{ form.confirm_password.label }}<br>
                {{ form.confirm_password }}
                <br>
+                  {% if form.confirm_password.errors %}
+        <ul class="errors">{% for error in form.confirm_password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                  {{ form.age.label }}<br>
                {{ form.age }}
                <br>
+                  {% if form.age.errors %}
+        <ul class="errors">{% for error in form.age.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      {% endif %}
+
                {{ form.submit }}
             </div>
 
          </fieldset>
       </form>
+      <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
    </body>
 </html>

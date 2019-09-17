@@ -2,6 +2,16 @@
 <html>
    <body>
       <h2 style = "text-align: center;">Form</h2>
+      {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
+
 
       <form action = "http://localhost:5000/del" method = post>
          <fieldset>
@@ -17,6 +27,11 @@
             </div>
 
          </fieldset>
+            <br>
+<center>
+     <a href="{{ url_for('back_emp') }}">Back</a>
+</center>
+
       </form>
    </body>
 </html>
