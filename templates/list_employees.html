@@ -5,6 +5,18 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 </head>
 <body>
+<style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+
+
    <br>
  <br>
    {% with messages = get_flashed_messages() %}
@@ -45,6 +57,6 @@
 <br>
  <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
 </body>

@@ -140,3 +140,365 @@
 17/09/2019 16:28:19 127.0.0.1 - - [17/Sep/2019 16:28:19] "GET /list HTTP/1.1" 200 -
 17/09/2019 16:28:23 127.0.0.1 - - [17/Sep/2019 16:28:23] "GET /back HTTP/1.1" 200 -
 17/09/2019 16:28:24 127.0.0.1 - - [17/Sep/2019 16:28:24] "GET /logout HTTP/1.1" 200 -
+18/09/2019 10:49:38 127.0.0.1 - - [18/Sep/2019 10:49:38] "GET / HTTP/1.1" 200 -
+18/09/2019 10:49:38 127.0.0.1 - - [18/Sep/2019 10:49:38] "GET /static/styles.css HTTP/1.1" 304 -
+18/09/2019 11:11:50  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\app.py', reloading
+18/09/2019 11:11:51  * Restarting with stat
+18/09/2019 11:15:56  * Restarting with stat
+18/09/2019 11:15:58  * Debugger is active!
+18/09/2019 11:15:58  * Debugger PIN: 387-219-103
+18/09/2019 11:15:58  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:21:43  * Restarting with stat
+18/09/2019 11:21:47  * Debugger is active!
+18/09/2019 11:21:47  * Debugger PIN: 387-219-103
+18/09/2019 11:21:47  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:21:47 127.0.0.1 - - [18/Sep/2019 11:21:47] "GET / HTTP/1.1" 200 -
+18/09/2019 11:21:47 127.0.0.1 - - [18/Sep/2019 11:21:47] "GET /static/img/intro-bg.jpg HTTP/1.1" 304 -
+18/09/2019 11:21:51 127.0.0.1 - - [18/Sep/2019 11:21:51] "GET /register HTTP/1.1" 200 -
+18/09/2019 11:22:13 127.0.0.1 - - [18/Sep/2019 11:22:13] "GET /register HTTP/1.1" 200 -
+18/09/2019 11:22:24 127.0.0.1 - - [18/Sep/2019 11:22:24] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:22:32 logged in as admin
+18/09/2019 11:22:32 127.0.0.1 - - [18/Sep/2019 11:22:32] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:22:36 employees list shown
+18/09/2019 11:22:36 127.0.0.1 - - [18/Sep/2019 11:22:36] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:22:39 employees list displayed
+18/09/2019 11:22:39 127.0.0.1 - - [18/Sep/2019 11:22:39] "GET /displayEmp?employee=%3CEmployees+admin%3E HTTP/1.1" 200 -
+18/09/2019 11:22:41 127.0.0.1 - - [18/Sep/2019 11:22:41] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:22:43 127.0.0.1 - - [18/Sep/2019 11:22:43] "GET /search HTTP/1.1" 200 -
+18/09/2019 11:22:47 search results shown
+18/09/2019 11:22:47 127.0.0.1 - - [18/Sep/2019 11:22:47] "POST /search HTTP/1.1" 200 -
+18/09/2019 11:22:48 127.0.0.1 - - [18/Sep/2019 11:22:48] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:23:29 127.0.0.1 - - [18/Sep/2019 11:23:29] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:25:21  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\app.py', reloading
+18/09/2019 11:25:22  * Restarting with stat
+18/09/2019 11:25:27  * Debugger is active!
+18/09/2019 11:25:27  * Debugger PIN: 387-219-103
+18/09/2019 11:25:27  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:25:28  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\app.py', reloading
+18/09/2019 11:25:29  * Restarting with stat
+18/09/2019 11:25:33  * Debugger is active!
+18/09/2019 11:25:33  * Debugger PIN: 387-219-103
+18/09/2019 11:25:33  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:25:43  * Restarting with stat
+18/09/2019 11:25:46  * Debugger is active!
+18/09/2019 11:25:46  * Debugger PIN: 387-219-103
+18/09/2019 11:25:46  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:26:10  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\app.py', reloading
+18/09/2019 11:26:12  * Restarting with stat
+18/09/2019 11:26:15  * Debugger is active!
+18/09/2019 11:26:15  * Debugger PIN: 387-219-103
+18/09/2019 11:26:15  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:37:51 127.0.0.1 - - [18/Sep/2019 11:37:51] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:37:58 logged in as Manager 
+18/09/2019 11:37:58 127.0.0.1 - - [18/Sep/2019 11:37:58] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:37:59 127.0.0.1 - - [18/Sep/2019 11:37:59] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:09 cannot give feedback
+18/09/2019 11:38:09 127.0.0.1 - - [18/Sep/2019 11:38:09] "POST /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:19 cannot give feedback
+18/09/2019 11:38:19 127.0.0.1 - - [18/Sep/2019 11:38:19] "POST /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:20 cannot give feedback
+18/09/2019 11:38:20 127.0.0.1 - - [18/Sep/2019 11:38:20] "POST /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:22 127.0.0.1 - - [18/Sep/2019 11:38:22] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:26 127.0.0.1 - - [18/Sep/2019 11:38:26] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:38:27 employees list shown
+18/09/2019 11:38:27 127.0.0.1 - - [18/Sep/2019 11:38:27] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:38:30 127.0.0.1 - - [18/Sep/2019 11:38:30] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:38:31 127.0.0.1 - - [18/Sep/2019 11:38:31] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 11:38:35 feedback submitted 
+18/09/2019 11:38:35 127.0.0.1 - - [18/Sep/2019 11:38:35] "POST /feedback HTTP/1.1" 302 -
+18/09/2019 11:38:36 employees list shown
+18/09/2019 11:38:36 127.0.0.1 - - [18/Sep/2019 11:38:36] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:38:38 127.0.0.1 - - [18/Sep/2019 11:38:38] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:38:41 127.0.0.1 - - [18/Sep/2019 11:38:41] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:38:42 127.0.0.1 - - [18/Sep/2019 11:38:42] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:38:47 logged in as employee 
+18/09/2019 11:38:47 127.0.0.1 - - [18/Sep/2019 11:38:47] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:38:49 127.0.0.1 - - [18/Sep/2019 11:38:49] "GET /feedbackShow HTTP/1.1" 200 -
+18/09/2019 11:38:51 127.0.0.1 - - [18/Sep/2019 11:38:51] "GET /givefeedback HTTP/1.1" 200 -
+18/09/2019 11:38:57 127.0.0.1 - - [18/Sep/2019 11:38:57] "POST /givefeedback HTTP/1.1" 200 -
+18/09/2019 11:39:00 127.0.0.1 - - [18/Sep/2019 11:39:00] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:39:16 127.0.0.1 - - [18/Sep/2019 11:39:16] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:42:41 127.0.0.1 - - [18/Sep/2019 11:42:41] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:45:06  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\app.py', reloading
+18/09/2019 11:45:07  * Restarting with stat
+18/09/2019 11:45:09  * Debugger is active!
+18/09/2019 11:45:09  * Debugger PIN: 387-219-103
+18/09/2019 11:45:09  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:45:14 127.0.0.1 - - [18/Sep/2019 11:45:14] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:45:15 127.0.0.1 - - [18/Sep/2019 11:45:15] "GET /register HTTP/1.1" 200 -
+18/09/2019 11:46:26  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\models.py', reloading
+18/09/2019 11:46:27  * Restarting with stat
+18/09/2019 11:46:29  * Debugger is active!
+18/09/2019 11:46:29  * Debugger PIN: 387-219-103
+18/09/2019 11:46:29  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:46:32 127.0.0.1 - - [18/Sep/2019 11:46:32] "GET /register HTTP/1.1" 200 -
+18/09/2019 11:46:45 127.0.0.1 - - [18/Sep/2019 11:46:45] "POST /register HTTP/1.1" 200 -
+18/09/2019 11:46:50 127.0.0.1 - - [18/Sep/2019 11:46:50] "GET /register HTTP/1.1" 200 -
+18/09/2019 11:46:53 127.0.0.1 - - [18/Sep/2019 11:46:53] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:48:02  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\models.py', reloading
+18/09/2019 11:48:02  * Restarting with stat
+18/09/2019 11:48:05  * Debugger is active!
+18/09/2019 11:48:05  * Debugger PIN: 387-219-103
+18/09/2019 11:48:05  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 11:48:06 127.0.0.1 - - [18/Sep/2019 11:48:06] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:48:15 logged in as employee 
+18/09/2019 11:48:15 127.0.0.1 - - [18/Sep/2019 11:48:15] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:48:18 127.0.0.1 - - [18/Sep/2019 11:48:18] "GET /logout HTTP/1.1" 200 -
+18/09/2019 11:48:19 127.0.0.1 - - [18/Sep/2019 11:48:19] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:48:47 127.0.0.1 - - [18/Sep/2019 11:48:47] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:48:59 127.0.0.1 - - [18/Sep/2019 11:48:59] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:49:15 127.0.0.1 - - [18/Sep/2019 11:49:15] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:49:23 logged in as admin
+18/09/2019 11:49:23 127.0.0.1 - - [18/Sep/2019 11:49:23] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:50:20 127.0.0.1 - - [18/Sep/2019 11:50:20] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:50:28 logged in as admin
+18/09/2019 11:50:28 127.0.0.1 - - [18/Sep/2019 11:50:28] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:51:00 127.0.0.1 - - [18/Sep/2019 11:51:00] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:51:07 logged in as admin
+18/09/2019 11:51:07 127.0.0.1 - - [18/Sep/2019 11:51:07] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:51:13 employees list shown
+18/09/2019 11:51:13 127.0.0.1 - - [18/Sep/2019 11:51:13] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:53:44 employees list shown
+18/09/2019 11:53:44 127.0.0.1 - - [18/Sep/2019 11:53:44] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:53:44 127.0.0.1 - - [18/Sep/2019 11:53:44] "GET /static/backbutton.css HTTP/1.1" 200 -
+18/09/2019 11:54:44 employees list shown
+18/09/2019 11:54:44 127.0.0.1 - - [18/Sep/2019 11:54:44] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list HTTP/1.1" 500 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+18/09/2019 11:56:14 127.0.0.1 - - [18/Sep/2019 11:56:14] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 11:56:15 127.0.0.1 - - [18/Sep/2019 11:56:15] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 11:56:23 127.0.0.1 - - [18/Sep/2019 11:56:23] "GET /list HTTP/1.1" 500 -
+18/09/2019 11:56:23 127.0.0.1 - - [18/Sep/2019 11:56:23] "GET /list?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+18/09/2019 11:56:23 127.0.0.1 - - [18/Sep/2019 11:56:23] "GET /list?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+18/09/2019 11:56:23 127.0.0.1 - - [18/Sep/2019 11:56:23] "GET /list?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+18/09/2019 11:56:24 127.0.0.1 - - [18/Sep/2019 11:56:24] "GET /list?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+18/09/2019 11:56:24 127.0.0.1 - - [18/Sep/2019 11:56:24] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 11:56:30 127.0.0.1 - - [18/Sep/2019 11:56:30] "GET /login HTTP/1.1" 200 -
+18/09/2019 11:56:36 logged in as admin
+18/09/2019 11:56:36 127.0.0.1 - - [18/Sep/2019 11:56:36] "POST /login HTTP/1.1" 200 -
+18/09/2019 11:56:37 employees list shown
+18/09/2019 11:56:37 127.0.0.1 - - [18/Sep/2019 11:56:37] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:57:12 employees list shown
+18/09/2019 11:57:12 127.0.0.1 - - [18/Sep/2019 11:57:12] "GET /list HTTP/1.1" 200 -
+18/09/2019 11:57:12 127.0.0.1 - - [18/Sep/2019 11:57:12] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+18/09/2019 11:57:14 127.0.0.1 - - [18/Sep/2019 11:57:14] "GET /back HTTP/1.1" 200 -
+18/09/2019 11:57:16 employees list shown
+18/09/2019 11:57:16 127.0.0.1 - - [18/Sep/2019 11:57:16] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:01:18 employees list shown
+18/09/2019 12:01:18 127.0.0.1 - - [18/Sep/2019 12:01:18] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:01:45 127.0.0.1 - - [18/Sep/2019 12:01:45] "GET /list HTTP/1.1" 500 -
+18/09/2019 12:01:45 127.0.0.1 - - [18/Sep/2019 12:01:45] "GET /list?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+18/09/2019 12:01:45 127.0.0.1 - - [18/Sep/2019 12:01:45] "GET /list?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+18/09/2019 12:01:46 127.0.0.1 - - [18/Sep/2019 12:01:46] "GET /list?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+18/09/2019 12:01:46 127.0.0.1 - - [18/Sep/2019 12:01:46] "GET /list?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+18/09/2019 12:01:46 127.0.0.1 - - [18/Sep/2019 12:01:46] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 12:01:46 127.0.0.1 - - [18/Sep/2019 12:01:46] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 12:01:47 127.0.0.1 - - [18/Sep/2019 12:01:47] "GET /list HTTP/1.1" 500 -
+18/09/2019 12:01:48 127.0.0.1 - - [18/Sep/2019 12:01:48] "GET /list?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+18/09/2019 12:01:48 127.0.0.1 - - [18/Sep/2019 12:01:48] "GET /list?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+18/09/2019 12:01:48 127.0.0.1 - - [18/Sep/2019 12:01:48] "GET /list?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+18/09/2019 12:01:48 127.0.0.1 - - [18/Sep/2019 12:01:48] "GET /list?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+18/09/2019 12:01:48 127.0.0.1 - - [18/Sep/2019 12:01:48] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 12:01:52 127.0.0.1 - - [18/Sep/2019 12:01:52] "GET /list HTTP/1.1" 500 -
+18/09/2019 12:01:52 127.0.0.1 - - [18/Sep/2019 12:01:52] "GET /list?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+18/09/2019 12:01:53 127.0.0.1 - - [18/Sep/2019 12:01:53] "GET /list?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+18/09/2019 12:01:53 127.0.0.1 - - [18/Sep/2019 12:01:53] "GET /list?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+18/09/2019 12:01:53 127.0.0.1 - - [18/Sep/2019 12:01:53] "GET /list?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+18/09/2019 12:01:53 127.0.0.1 - - [18/Sep/2019 12:01:53] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 12:01:58 127.0.0.1 - - [18/Sep/2019 12:01:58] "GET /list?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+18/09/2019 12:02:00 127.0.0.1 - - [18/Sep/2019 12:02:00] "GET /login HTTP/1.1" 200 -
+18/09/2019 12:02:06 logged in as admin
+18/09/2019 12:02:06 127.0.0.1 - - [18/Sep/2019 12:02:06] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:02:08 employees list shown
+18/09/2019 12:02:08 127.0.0.1 - - [18/Sep/2019 12:02:08] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:02:36 employees list shown
+18/09/2019 12:02:36 127.0.0.1 - - [18/Sep/2019 12:02:36] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:02:39 127.0.0.1 - - [18/Sep/2019 12:02:39] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:02:40 employees list shown
+18/09/2019 12:02:40 127.0.0.1 - - [18/Sep/2019 12:02:40] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:03:13 employees list shown
+18/09/2019 12:03:13 127.0.0.1 - - [18/Sep/2019 12:03:13] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:03:13 127.0.0.1 - - [18/Sep/2019 12:03:13] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+18/09/2019 12:03:45 employees list shown
+18/09/2019 12:03:45 127.0.0.1 - - [18/Sep/2019 12:03:45] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:03:45 127.0.0.1 - - [18/Sep/2019 12:03:45] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+18/09/2019 12:03:52 127.0.0.1 - - [18/Sep/2019 12:03:52] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:03:53 127.0.0.1 - - [18/Sep/2019 12:03:53] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:03:58 employee deleted successfully
+18/09/2019 12:03:58 127.0.0.1 - - [18/Sep/2019 12:03:58] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:03:58 employees list shown
+18/09/2019 12:03:58 127.0.0.1 - - [18/Sep/2019 12:03:58] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:04 127.0.0.1 - - [18/Sep/2019 12:04:04] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:06 127.0.0.1 - - [18/Sep/2019 12:04:06] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:10 employee deleted successfully
+18/09/2019 12:04:10 127.0.0.1 - - [18/Sep/2019 12:04:10] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:10 employees list shown
+18/09/2019 12:04:10 127.0.0.1 - - [18/Sep/2019 12:04:10] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:14 127.0.0.1 - - [18/Sep/2019 12:04:14] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:16 127.0.0.1 - - [18/Sep/2019 12:04:16] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:20 employee deleted successfully
+18/09/2019 12:04:20 127.0.0.1 - - [18/Sep/2019 12:04:20] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:20 employees list shown
+18/09/2019 12:04:20 127.0.0.1 - - [18/Sep/2019 12:04:20] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:24 127.0.0.1 - - [18/Sep/2019 12:04:24] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:25 127.0.0.1 - - [18/Sep/2019 12:04:25] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:28 employee deleted successfully
+18/09/2019 12:04:28 127.0.0.1 - - [18/Sep/2019 12:04:28] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:28 employees list shown
+18/09/2019 12:04:28 127.0.0.1 - - [18/Sep/2019 12:04:28] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:33 127.0.0.1 - - [18/Sep/2019 12:04:33] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:35 127.0.0.1 - - [18/Sep/2019 12:04:35] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:39 employee deleted successfully
+18/09/2019 12:04:39 127.0.0.1 - - [18/Sep/2019 12:04:39] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:39 employees list shown
+18/09/2019 12:04:39 127.0.0.1 - - [18/Sep/2019 12:04:39] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:44 127.0.0.1 - - [18/Sep/2019 12:04:44] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:45 127.0.0.1 - - [18/Sep/2019 12:04:45] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:48 employee deleted successfully
+18/09/2019 12:04:48 127.0.0.1 - - [18/Sep/2019 12:04:48] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:48 employees list shown
+18/09/2019 12:04:48 127.0.0.1 - - [18/Sep/2019 12:04:48] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:04:55 127.0.0.1 - - [18/Sep/2019 12:04:55] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:04:57 127.0.0.1 - - [18/Sep/2019 12:04:57] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:04:59 employee deleted successfully
+18/09/2019 12:04:59 127.0.0.1 - - [18/Sep/2019 12:04:59] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:04:59 employees list shown
+18/09/2019 12:04:59 127.0.0.1 - - [18/Sep/2019 12:04:59] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:05:03 127.0.0.1 - - [18/Sep/2019 12:05:03] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:05:04 127.0.0.1 - - [18/Sep/2019 12:05:04] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:05:07 employee deleted successfully
+18/09/2019 12:05:07 127.0.0.1 - - [18/Sep/2019 12:05:07] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:05:07 employees list shown
+18/09/2019 12:05:07 127.0.0.1 - - [18/Sep/2019 12:05:07] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:05:17 127.0.0.1 - - [18/Sep/2019 12:05:17] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:05:21 127.0.0.1 - - [18/Sep/2019 12:05:21] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:05:28 employees list shown
+18/09/2019 12:05:28 127.0.0.1 - - [18/Sep/2019 12:05:28] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:05:29 employees list displayed
+18/09/2019 12:05:29 127.0.0.1 - - [18/Sep/2019 12:05:29] "GET /displayEmp?employee=%3CEmployees+employee1%3E HTTP/1.1" 200 -
+18/09/2019 12:05:31 127.0.0.1 - - [18/Sep/2019 12:05:31] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:05:32 employees list shown
+18/09/2019 12:05:32 127.0.0.1 - - [18/Sep/2019 12:05:32] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:05:53 employees list shown
+18/09/2019 12:05:53 127.0.0.1 - - [18/Sep/2019 12:05:53] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:06:47 employees list displayed
+18/09/2019 12:06:47 127.0.0.1 - - [18/Sep/2019 12:06:47] "GET /displayEmp?employee=%3CEmployees+Bhavika+Assudani+333%3E HTTP/1.1" 200 -
+18/09/2019 12:06:49 employees list displayed
+18/09/2019 12:06:49 127.0.0.1 - - [18/Sep/2019 12:06:49] "GET /displayEmp?employee=%3CEmployees+Bhavika+Assudani+333%3E HTTP/1.1" 200 -
+18/09/2019 12:06:51 127.0.0.1 - - [18/Sep/2019 12:06:51] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:06:52 employees list shown
+18/09/2019 12:06:52 127.0.0.1 - - [18/Sep/2019 12:06:52] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:06:54 employees list displayed
+18/09/2019 12:06:54 127.0.0.1 - - [18/Sep/2019 12:06:54] "GET /displayEmp?employee=%3CEmployees+employee1%3E HTTP/1.1" 200 -
+18/09/2019 12:06:59 employees list shown
+18/09/2019 12:06:59 127.0.0.1 - - [18/Sep/2019 12:06:59] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:07:00 employees list displayed
+18/09/2019 12:07:00 127.0.0.1 - - [18/Sep/2019 12:07:00] "GET /displayEmp?employee=%3CEmployees+Bhavika+Assudani+33%3E HTTP/1.1" 200 -
+18/09/2019 12:07:01 127.0.0.1 - - [18/Sep/2019 12:07:01] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:07:21 employees list shown
+18/09/2019 12:07:21 127.0.0.1 - - [18/Sep/2019 12:07:21] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:07:23 employees list displayed
+18/09/2019 12:07:23 127.0.0.1 - - [18/Sep/2019 12:07:23] "GET /displayEmp?employee=%3CEmployees+manager3%3E HTTP/1.1" 200 -
+18/09/2019 12:07:25 127.0.0.1 - - [18/Sep/2019 12:07:25] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:07:27 127.0.0.1 - - [18/Sep/2019 12:07:27] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:08:33  * Detected change in 'C:\\Users\\bhavika_assudani\\PycharmProjects\\EmpMangement\\models.py', reloading
+18/09/2019 12:08:34  * Restarting with stat
+18/09/2019 12:08:36  * Debugger is active!
+18/09/2019 12:08:36  * Debugger PIN: 387-219-103
+18/09/2019 12:08:36  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+18/09/2019 12:09:49 127.0.0.1 - - [18/Sep/2019 12:09:49] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:10:09 127.0.0.1 - - [18/Sep/2019 12:10:09] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:10:47 127.0.0.1 - - [18/Sep/2019 12:10:47] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:10:59 search results shown
+18/09/2019 12:10:59 127.0.0.1 - - [18/Sep/2019 12:10:59] "POST /search HTTP/1.1" 200 -
+18/09/2019 12:11:00 127.0.0.1 - - [18/Sep/2019 12:11:00] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:11:04 127.0.0.1 - - [18/Sep/2019 12:11:04] "GET /login HTTP/1.1" 200 -
+18/09/2019 12:11:11 failed to log in
+18/09/2019 12:11:11 127.0.0.1 - - [18/Sep/2019 12:11:11] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:11:15 failed to log in
+18/09/2019 12:11:15 127.0.0.1 - - [18/Sep/2019 12:11:15] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:11:22 logged in as admin
+18/09/2019 12:11:22 127.0.0.1 - - [18/Sep/2019 12:11:22] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:11:24 employees list shown
+18/09/2019 12:11:24 127.0.0.1 - - [18/Sep/2019 12:11:24] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:11:27 127.0.0.1 - - [18/Sep/2019 12:11:27] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:11:28 127.0.0.1 - - [18/Sep/2019 12:11:28] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:11:37 127.0.0.1 - - [18/Sep/2019 12:11:37] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:11:41 search results shown
+18/09/2019 12:11:41 127.0.0.1 - - [18/Sep/2019 12:11:41] "POST /search HTTP/1.1" 200 -
+18/09/2019 12:11:41 127.0.0.1 - - [18/Sep/2019 12:11:41] "GET /static/img/favicon.ico HTTP/1.1" 200 -
+18/09/2019 12:11:45 127.0.0.1 - - [18/Sep/2019 12:11:45] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:12:36 127.0.0.1 - - [18/Sep/2019 12:12:36] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:12:39 search results shown
+18/09/2019 12:12:39 127.0.0.1 - - [18/Sep/2019 12:12:39] "POST /search HTTP/1.1" 200 -
+18/09/2019 12:12:43 127.0.0.1 - - [18/Sep/2019 12:12:43] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:12:44 employees list shown
+18/09/2019 12:12:44 127.0.0.1 - - [18/Sep/2019 12:12:44] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:12:45 127.0.0.1 - - [18/Sep/2019 12:12:45] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:12:46 127.0.0.1 - - [18/Sep/2019 12:12:46] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:12:48 127.0.0.1 - - [18/Sep/2019 12:12:48] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:12:49 127.0.0.1 - - [18/Sep/2019 12:12:49] "GET /update_profile_details HTTP/1.1" 200 -
+18/09/2019 12:12:57 127.0.0.1 - - [18/Sep/2019 12:12:57] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:14:23 127.0.0.1 - - [18/Sep/2019 12:14:23] "GET /update_profile_details HTTP/1.1" 200 -
+18/09/2019 12:14:27 127.0.0.1 - - [18/Sep/2019 12:14:27] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:16:03 127.0.0.1 - - [18/Sep/2019 12:16:03] "GET /update_profile_details HTTP/1.1" 200 -
+18/09/2019 12:16:07 127.0.0.1 - - [18/Sep/2019 12:16:07] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:16:09 127.0.0.1 - - [18/Sep/2019 12:16:09] "GET /addEmp HTTP/1.1" 200 -
+18/09/2019 12:16:16 127.0.0.1 - - [18/Sep/2019 12:16:16] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:16:19 127.0.0.1 - - [18/Sep/2019 12:16:19] "GET /logout HTTP/1.1" 200 -
+18/09/2019 12:16:20 127.0.0.1 - - [18/Sep/2019 12:16:20] "GET /register HTTP/1.1" 200 -
+18/09/2019 12:21:46 127.0.0.1 - - [18/Sep/2019 12:21:46] "GET /login HTTP/1.1" 200 -
+18/09/2019 12:21:50 logged in as admin
+18/09/2019 12:21:50 127.0.0.1 - - [18/Sep/2019 12:21:50] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:21:52 127.0.0.1 - - [18/Sep/2019 12:21:52] "GET /addEmp HTTP/1.1" 200 -
+18/09/2019 12:23:02 127.0.0.1 - - [18/Sep/2019 12:23:02] "GET /addEmp HTTP/1.1" 200 -
+18/09/2019 12:23:29 127.0.0.1 - - [18/Sep/2019 12:23:29] "GET /addEmp HTTP/1.1" 200 -
+18/09/2019 12:23:31 127.0.0.1 - - [18/Sep/2019 12:23:31] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:23:34 127.0.0.1 - - [18/Sep/2019 12:23:34] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:24:19 127.0.0.1 - - [18/Sep/2019 12:24:19] "GET /del HTTP/1.1" 200 -
+18/09/2019 12:24:24 no employee to delete or couldnt delete
+18/09/2019 12:24:24 127.0.0.1 - - [18/Sep/2019 12:24:24] "POST /del HTTP/1.1" 200 -
+18/09/2019 12:24:33 no employee to delete or couldnt delete
+18/09/2019 12:24:33 127.0.0.1 - - [18/Sep/2019 12:24:33] "POST /del HTTP/1.1" 200 -
+18/09/2019 12:24:40 employee deleted successfully
+18/09/2019 12:24:40 127.0.0.1 - - [18/Sep/2019 12:24:40] "POST /del HTTP/1.1" 302 -
+18/09/2019 12:24:40 employees list shown
+18/09/2019 12:24:40 127.0.0.1 - - [18/Sep/2019 12:24:40] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:24:43 127.0.0.1 - - [18/Sep/2019 12:24:43] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:24:49 127.0.0.1 - - [18/Sep/2019 12:24:49] "GET /logout HTTP/1.1" 200 -
+18/09/2019 12:25:21 127.0.0.1 - - [18/Sep/2019 12:25:21] "GET /login HTTP/1.1" 200 -
+18/09/2019 12:25:28 logged in as employee 
+18/09/2019 12:25:28 127.0.0.1 - - [18/Sep/2019 12:25:28] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:25:30 127.0.0.1 - - [18/Sep/2019 12:25:30] "GET /search HTTP/1.1" 200 -
+18/09/2019 12:25:36 search results shown
+18/09/2019 12:25:36 127.0.0.1 - - [18/Sep/2019 12:25:36] "POST /search HTTP/1.1" 200 -
+18/09/2019 12:25:37 127.0.0.1 - - [18/Sep/2019 12:25:37] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:25:38 127.0.0.1 - - [18/Sep/2019 12:25:38] "GET /update_profile HTTP/1.1" 200 -
+18/09/2019 12:25:40 127.0.0.1 - - [18/Sep/2019 12:25:40] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:25:41 127.0.0.1 - - [18/Sep/2019 12:25:41] "GET /feedbackShow HTTP/1.1" 200 -
+18/09/2019 12:25:48 127.0.0.1 - - [18/Sep/2019 12:25:48] "GET /givefeedback HTTP/1.1" 200 -
+18/09/2019 12:25:56 127.0.0.1 - - [18/Sep/2019 12:25:56] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:26:41 127.0.0.1 - - [18/Sep/2019 12:26:41] "GET /feedbackShow HTTP/1.1" 200 -
+18/09/2019 12:26:42 127.0.0.1 - - [18/Sep/2019 12:26:42] "GET /givefeedback HTTP/1.1" 200 -
+18/09/2019 12:26:45 127.0.0.1 - - [18/Sep/2019 12:26:45] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:26:47 127.0.0.1 - - [18/Sep/2019 12:26:47] "GET /logout HTTP/1.1" 200 -
+18/09/2019 12:26:49 127.0.0.1 - - [18/Sep/2019 12:26:49] "GET /login HTTP/1.1" 200 -
+18/09/2019 12:26:54 logged in as Manager 
+18/09/2019 12:26:54 127.0.0.1 - - [18/Sep/2019 12:26:54] "POST /login HTTP/1.1" 200 -
+18/09/2019 12:26:56 employees list shown
+18/09/2019 12:26:56 127.0.0.1 - - [18/Sep/2019 12:26:56] "GET /list HTTP/1.1" 200 -
+18/09/2019 12:27:00 127.0.0.1 - - [18/Sep/2019 12:27:00] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:27:02 127.0.0.1 - - [18/Sep/2019 12:27:02] "GET /update_profile HTTP/1.1" 200 -
+18/09/2019 12:27:03 127.0.0.1 - - [18/Sep/2019 12:27:03] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:27:04 127.0.0.1 - - [18/Sep/2019 12:27:04] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:28:42 127.0.0.1 - - [18/Sep/2019 12:28:42] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:29:22 127.0.0.1 - - [18/Sep/2019 12:29:22] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:29:24 127.0.0.1 - - [18/Sep/2019 12:29:24] "GET /back HTTP/1.1" 200 -
+18/09/2019 12:29:25 127.0.0.1 - - [18/Sep/2019 12:29:25] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:38:10 127.0.0.1 - - [18/Sep/2019 12:38:10] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:38:19 127.0.0.1 - - [18/Sep/2019 12:38:19] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:38:39 127.0.0.1 - - [18/Sep/2019 12:38:39] "GET /feedback HTTP/1.1" 200 -
+18/09/2019 12:38:41 127.0.0.1 - - [18/Sep/2019 12:38:41] "GET /back HTTP/1.1" 200 -

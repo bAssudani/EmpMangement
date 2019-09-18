@@ -7,6 +7,18 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 </head>
 <body>
+<style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+
+
   <h3 >Employees List</h3>
  <br>
 
@@ -37,7 +49,7 @@
   <br>
    <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
   <br>
   <br>

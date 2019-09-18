@@ -1,5 +1,15 @@
 <!doctype html>
 <html>
+<style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
    <body>
       <h2 style = "text-align: center;">Assesment Form</h2>
 
@@ -19,7 +29,7 @@
             <legend>Assesment Form</legend>
             {{ form.hidden_tag() }}
               {{ form.hidden_tag() }}
-                  {{form.name.label}}<br>
+                  {{form.name.label}}
                 <br>
                 {{form.name}}
                 <br>
@@ -35,7 +45,7 @@
       </form>
    <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
 
    </body>

@@ -1,7 +1,17 @@
 <!doctype html>
 <html>
    <body>
-      <h2 style = "text-align: center;">Registration Form</h2>
+    <style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+      <h2 style = "text-align: center;">Feedback Form</h2>
 
     {% with messages = get_flashed_messages() %}
    {% if messages %}
@@ -16,7 +26,7 @@
 
       <form action = "http://localhost:5000/feedback" method = post>
          <fieldset>
-            <legend>Registration Form</legend>
+            <legend>Feedback Form</legend>
             {{ form.hidden_tag() }}
 
 
@@ -34,7 +44,7 @@
       </form>
       <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
    </body>
 </html>

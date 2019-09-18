@@ -1,17 +1,20 @@
 <!doctype html>
 <html>
-   <body>
+<head>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="shortcut icon">
+</head>
+<body>
       <h2 style = "text-align: center;">Login Form</h2>
-
-     {% with messages = get_flashed_messages() %}
-   {% if messages %}
-     <ul class="flashes">
-        {% for message in messages %}
-         <div class="message_flash">{{ message }}</div>
-        {% endfor %}
-    </ul>
-  {% endif %}
- {% endwith %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <div class="message_flash">{{ message }}</div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+      {% endwith %}
 {% block body %}
 {% endblock %}
 
@@ -19,16 +22,17 @@
          <fieldset>
             <legend>Login Form</legend>
             {{ form.hidden_tag() }}
-
+<br>
 
                {{ form.name.label }}<br>
                {{ form.name }}
-               <br>
+
+<br>               <br>
 
                  {{ form.password.label }}<br>
                {{ form.password }}
                <br>
-
+<br>
                {{ form.submit }}
             </div>
 

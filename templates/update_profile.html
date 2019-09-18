@@ -1,6 +1,18 @@
 <!doctype html>
 <html>
    <body>
+<style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+
+
       <h2 style = "text-align: center;">Updation Form</h2>
 
 
@@ -19,6 +31,7 @@
  <fieldset>
     <form action = "http://localhost:5000/update_profile" method = post>
  {{ form.csrf_token }}
+        <br>
        {{ form.name.label }}<br>
         {{ form.name() }}<br>
       <br>
@@ -86,7 +99,7 @@
    </fieldset>
          <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
    </div>
 </div>

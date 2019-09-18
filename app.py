@@ -1,6 +1,5 @@
 import sqlite3
 from pymongo import MongoClient
-from redis import Redis
 import models
 import logging
 from flask_sqlalchemy import SQLAlchemy
@@ -11,14 +10,12 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///employees.sqlite3'
 app.config['SECRET_KEY'] = "secret key"
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
-app.config['REDIS_HOST'] = 'localhost'
-app.config['REDIS_PORT'] = 6379
-app.config['REDIS_DB'] = 0
+
 
 client = MongoClient("mongodb://127.0.0.1:27017")
 db = client.Assessment
 forms = db.Form
-redis = Redis(app)
+
 
 log = "LoggerFile.log"
 logging.basicConfig(filename=log,level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %H:%M:%S')
@@ -350,7 +347,7 @@ def give_feedback():
                 f = open("feedback.txt", "a")
                 f.write('\n' + form.name.data + "\n" + form.message.data)
                 flash("feedback submitted successfully")
-                logging.info("feedback submitted successfully for ",form.name.data)
+                logging.info("feedback submitted successfully ")
             except Exception as e:
                 logging.error("cannot submit feedback")
                 flash("cannot submit feedback please try again")

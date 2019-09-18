@@ -1,16 +1,42 @@
 <!doctype html>
 <html>
+
    <body>
+   <style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+
+
+   <br>
+ <br>
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
+
+   <br>
       <h2 style = "text-align: center;">Search Form</h2>
       <form action = "http://localhost:5000/search" method = post>
          <fieldset>
             <legend>Search Form</legend>
             {{ form.hidden_tag() }}
 
-            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+<br>
                {{ form.name.label }}<br>
                {{ form.name }}
-               <br>
+    <br>           <br>
                {{ form.submit }}
             </div>
 
@@ -18,7 +44,7 @@
       </form>
     <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
    </body>
 </html>

@@ -1,6 +1,16 @@
 <!doctype html>
 <html>
    <body>
+   <style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
       <h2 style = "text-align: center;">Add employee Form</h2>
 
      {% with messages = get_flashed_messages() %}
@@ -18,65 +28,66 @@
             <legend>Registration Form</legend>
             {{ form.hidden_tag() }}
 
-
+<br>
                {{ form.name.label }}<br>
-               {{ form.name }}
+               {{ form.name }}<br>
+             <br>
                   {% if form.name.errors %}
         <ul class="errors">{% for error in form.name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
-               <br>
+
                 {{ form.designation.label }}<br>
-               {{ form.designation }}
+               {{ form.designation }}<br>
                <br>
                {% if form.designation.errors %}
         <ul class="errors">{% for error in form.designation.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.salary.label }}<br>
-               {{ form.salary }}
+               {{ form.salary }}<br>
                <br>
                   {% if form.salary.errors %}
         <ul class="errors">{% for error in form.salary.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.address.label }}<br>
-               {{ form.address }}
+               {{ form.address }}<br>
                <br>
                  {% if form.address.errors %}
         <ul class="errors">{% for error in form.address.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.pNumber.label }}<br>
-               {{ form.pNumber }}
+               {{ form.pNumber }}<br>
                <br>
                 {% if form.pNumber.errors %}
         <ul class="errors">{% for error in form.pNumber.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.manager.label }}<br>
-               {{ form.manager }}
+               {{ form.manager }}<br>
                <br>
                   {% if form.manager.errors %}
         <ul class="errors">{% for error in form.manager.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.password.label }}<br>
-               {{ form.password }}
+               {{ form.password }}<br>
                <br>
                  {% if form.password.errors %}
         <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                 {{ form.confirm_password.label }}<br>
-               {{ form.confirm_password }}
+               {{ form.confirm_password }}<br>
                <br>
                   {% if form.confirm_password.errors %}
         <ul class="errors">{% for error in form.confirm_password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
       {% endif %}
 
                  {{ form.age.label }}<br>
-               {{ form.age }}
+               {{ form.age }}<br>
                <br>
                   {% if form.age.errors %}
         <ul class="errors">{% for error in form.age.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -89,7 +100,7 @@
       </form>
       <br>
 <center>
-     <a href="{{ url_for('back_emp') }}">Back</a>
+     <a class="back" href="{{ url_for('back_emp') }}">Back</a>
 </center>
    </body>
 </html>
