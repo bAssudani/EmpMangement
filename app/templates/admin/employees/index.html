@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <link href="{{ url_for('static', filename='css/chatbot.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/chat_interface.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style1.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+   <div class="row">
+    <div class="col-sm-6">
+        <div class="row">
+      <br>
+      <br>
+          <div class="chat_window">
+            <br>
+      <center><h3>Help Desk</h3></center>
+      <div id="chatbox">
+        <p class="botText"><span>Hi!How may I help you?</span></p>
+      </div>
+      <div id="userInput" >
+        <input id="textInput" type="text" name="msg" placeholder="Message" >
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("help/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+            </div>
+    </div>
+    </div>
+   </div>
+  </body>
+</html>

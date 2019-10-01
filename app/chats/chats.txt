@@ -1,0 +1,18 @@
+ok
+Thank You
+how many leaves do we have ?
+You have 27 leaves in a year.
+how to apply for a leave ?
+1)Go to holidays 2)leave list 3)apply leave
+how to view leaves list ?
+1)Go to Holidays 2)Leave List
+how to search for employees ?
+Go to search option in the nav bar
+how to see my subordinates ?
+If you are a manager you can view subordinates by going to the subordinates nav bar
+when is the next holiday ?
+The next holiday is on 2 nd october
+how to view holidays list?
+To view holidays list go to holidays in the nav bar
+bdjhfs
+sorry i cannot understand what you are saying

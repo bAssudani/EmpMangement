@@ -1,0 +1,32 @@
+<html>
+<body>
+<h3><center>
+<style>
+    .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+
+</style>
+  <b>ASSESSMENT</b>
+</center></h3>
+<form>
+    <fieldset>
+
+<br>
+
+        <p>Job Knowledge is {{employee.assessment}}</p>
+ <br>
+    </fieldset>
+
+</form>
+<br>
+ <center><a class="back" href="{{ url_for('admin.give_feedback') }}">Give Feedback</a></center>
+
+</body>
+
+</html>

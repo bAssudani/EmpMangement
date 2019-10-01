@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }} | Employee Management System</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand topnav" href="{{ url_for('home.homepage') }}">Employee Management System</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <ul class="nav navbar-nav navbar-right">
+    {% if current_user.is_authenticated %}
+
+      {% if current_user.is_admin %}
+        <li><a href="{{ url_for('home.admin_dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('admin.list_departments') }}">Departments</a></li>
+       <li><a href="{{ url_for('admin.list_roles') }}">Roles</a></li>
+       <li><a href="{{ url_for('admin.list_employees') }}">Employees</a></li>
+                 <li><a href="{{ url_for('admin.search_employees') }}">Search</a></li>
+                 <li><a href="{{ url_for('admin.view_profile_admin') }}">Profile</a></li>
+      {% else %}
+                 {% if current_user.isManager %}
+        <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
+                 <li><a href="{{ url_for('admin.search_employees') }}">Employees</a></li>
+                 <li><a href="{{ url_for('admin.view_sub') }}">Subordinates</a></li>
+                 <li><a href="{{ url_for('admin.give_assessment') }}">Give Assessment</a></li>
+                 {% if current_user.assessment %}
+                 <li><a href="{{url_for('admin.view_assessment')}}">Assessment</a></li>
+                 {% endif %}
+                 <li><a href="{{ url_for('admin.view_profile') }}">Profile</a></li>
+                 <li><a href="{{ url_for('admin.leave_grant') }}">Holidays</a></li>
+                 <li><a href="{{ url_for('admin.help') }}"><i class="fa fa-comments"></i>Help</a></li>
+                 {% else %}
+                 <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
+                 <li><a href="{{ url_for('admin.search_employees') }}">Employees</a></li>
+                 {% if current_user.assessment %}
+                 <li><a href="{{url_for('admin.view_assessment')}}">View Assessment</a></li>
+                 {% endif %}
+                 <li><a href="{{ url_for('admin.view_profile') }}">Profile</a></li>
+                 <li><a href="{{ url_for('admin.holidays') }}">Holidays</a></li>
+                 <li><a href="{{ url_for('admin.help') }}"><i class="fa fa-comments"></i>Help</a></li>
+                 {% endif %}
+      {% endif %}
+      <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      <li><a><i class="fa fa-user"></i>  Hi, {{ current_user.name }}!</a></li>
+    {% else %}
+      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+    {% endif %}
+</ul>
+          </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+      {% block body %}
+      {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Employees{% endblock %}
+<head>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+{% block body %}
+<style>
+     .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+
+<script>
+    function show_more_menu(e) {
+  if(!confirm('Do you want to delete ')) e.preventDefault();;
+}
+</script>
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <br/>
+        <br/>
+
+        <h4 style="text-align:center;">Leaves List</h4>
+        {% if leaves %}
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead bgcolor="#aec251">
+                <tr>
+                  <th width="15%"> Date From </th>
+                  <th width="30%"> Date To </th>
+                  <th width="30%"> Leave Status </th>
+                  <th width="15%"> Withdraw </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for employee in leaves %}
+                    <tr>
+                      <td>
+                        {{ employee.date_from }}
+                      <td>
+
+                          {{ employee.date_to }}
+
+                      </td>
+                      <td>
+
+                          {{ employee.leave_status }}
+
+                      </td>
+                      <td>
+
+                         {% if employee.leave_status=='pending' %}
+
+
+                        <a onclick="show_more_menu(event)" href="{{ url_for('admin.del_leave', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Delete
+                        </a>
+
+                          {% endif %}
+                      </td>
+
+              {% endfor %}
+              </tbody>
+            </table>
+
+          </div>
+        {% endif %}
+         <center>
+              <a class="back" href="{{ url_for('admin.leave_app') }}">Apply for Leave</a>
+         </center>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
