@@ -50,7 +50,7 @@ h3 {
 }
 
 .userText {
-    color: white;
+    color: black;
     font-family: monospace;
     font-size: 17px;
     text-align: right;
@@ -58,14 +58,14 @@ h3 {
 }
 
 .userText span {
-    background-color: #009688;
+    background-color: #a3d063;
     padding: 10px;
     border-radius: 2px;
     width:15px;
 }
 
 .botText {
-    color: white;
+    color: black;
     font-family: monospace;
     font-size: 17px;
     text-align: left;
@@ -73,7 +73,7 @@ h3 {
 }
 
 .botText span {
-    background-color: #EF5350;
+    background-color:#c7eafc;
     padding: 10px;
     border-radius: 2px;
    width:250px; /* or whatever width you want. */

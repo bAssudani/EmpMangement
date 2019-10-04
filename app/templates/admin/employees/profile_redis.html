@@ -70,19 +70,34 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
+
+img {
+  border-radius: 50%;
+  height:100px;
+  width:100px;
+  margin-left:20px;
+
+}
+
 </style>
 
 </head>
 <body>
 <br>
-<center>
-  <h2>Profile Page</h2>
-</center>
-<br>
+
 <br>
 
 <div class="container">
   <form action="">
+    <div class="row">
+    <div class="col-25">
+      <img src="{{ url_for('static', filename=current_user.photo) }}">
+    </div>
+    <div class="col-75">
+      <h1>Profile Page</h1>
+    </div>
+ </div>
+
   <div class="row">
     <div class="col-25">
       <label for="id">Emp id</label>

@@ -3,12 +3,14 @@ import re
 
 from flask_login import current_user
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileRequired
+from flask_wtf.file import FileRequired, FileAllowed
 from sqlalchemy import or_
 from wtforms import StringField, SubmitField, IntegerField, PasswordField, BooleanField, RadioField, validators, \
-    FileField
-from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
+    FileField, widgets
+from wtforms.validators import DataRequired, EqualTo, Email, ValidationError, InputRequired
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms.widgets import PasswordInput
+
 from ..models import Department, Role, Employee
 from wtforms.fields.html5 import DateField
 
@@ -40,7 +42,7 @@ class EmployeeEditForm(FlaskForm):
     salary = IntegerField('Salary', validators=[DataRequired(message="cannot be null and is an integer")])
     address = StringField('Address', validators=[DataRequired(message="cannot be null and is a string")])
     pNumber = IntegerField('Phone Number', validators=[DataRequired(message="cannot be null and is an integer")])
-    manager = QuerySelectField(query_factory=lambda:Employee.query.filter(Employee.isManager==1).all(),
+    manager = QuerySelectField('Manager-Id',query_factory=lambda:Employee.query.filter(Employee.isManager==1).all(),
                                   get_label="id", validators=[DataRequired(message="cannot be null ")])
     age = IntegerField('Age', validators=[DataRequired(message="cannot be null and is an integer")])
     submit = SubmitField('Update')
@@ -67,7 +69,7 @@ class EmployeeAddForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password')
     isManager = BooleanField('Is Manager?')
     age = IntegerField('Age', validators=[DataRequired(message="cannot be null and is an integer")])
-
+    photo = FileField('Picture',validators=[FileRequired(), FileAllowed(['jpg', 'png'], 'Images only!')])
     submit = SubmitField('Add')
 
     def validate_email(self, field):
@@ -88,17 +90,24 @@ class EmployeeAddForm(FlaskForm):
 
 
 class AssessmentForm(FlaskForm):
-    name = QuerySelectField('Employee-Id',query_factory=lambda: Employee.query.filter_by(manager=current_user.name).all(),
-                                  get_label="id")
-    example = RadioField('Job Knowledge', choices=[('Excellent', 'Excellent'), ('Very Good', 'Very Good'), ('Good', 'Good'),
+    name = QuerySelectField('Employee' ,query_factory=lambda: Employee.query.filter_by(manager=current_user.name).all(),
+                                  get_label="name")
+    example = RadioField('Job Knowledge', validators=[InputRequired()] , choices=[('Excellent', 'Excellent'), ('Very Good', 'Very Good'), ('Good', 'Good'),
                                            ('Satisfactory', 'Satisfactory'), ('Need improvement', 'Need improvement')])
     submit = SubmitField('Submit')
+
+    def pre_validate(self, form):
+        for v, _ in self.choices:
+            if self.data == v:
+                break
+        else:
+            raise ValueError(self.gettext('Not a valid choice'))
 
 
 
 class FeedbackForm(FlaskForm):
-    name=QuerySelectField('Manager-Id',query_factory=lambda: Employee.query.filter_by(name=current_user.manager).all(),
-                                  get_label="id")
+    name=QuerySelectField('Manager',query_factory=lambda: Employee.query.filter_by(name=current_user.manager).all(),
+                                  get_label="name")
     feedback = StringField('Feedback', validators=[DataRequired()])
     submit = SubmitField('Give Feedback')
 
@@ -128,3 +137,20 @@ class LeaveForm(FlaskForm):
     dt = DateField('Leave From')
     dt1 = DateField('Leave To')
     submit = SubmitField('Apply')
+
+
+class ChangePasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[
+        DataRequired(),
+        EqualTo('confirm_password')
+    ])
+    confirm_password = PasswordField('Confirm Password')
+    submit = SubmitField('Change')
+
+    def validate_password(self, field):
+        if len(field.data) < 8:
+            raise ValidationError("Make sure your password is at lest 8 letters")
+        elif re.search('[0-9]', field.data) is None:
+            raise ValidationError("Make sure your password has a number in it")
+        elif re.search('[A-Z]', field.data) is None:
+            raise ValidationError("Make sure your password has a capital letter in it")

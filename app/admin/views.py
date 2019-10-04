@@ -9,8 +9,10 @@ from chatterbot.trainers import ListTrainer
 from elasticsearch import Elasticsearch
 from flask import abort, flash, redirect, render_template, url_for, request, current_app, jsonify
 from flask_login import current_user, login_required
+from werkzeug.utils import secure_filename
+
 from forms import DepartmentForm, RoleForm, EmployeeEditForm, EmployeeAddForm, AssessmentForm, FeedbackForm, UpdateForm, \
-    SearchForm, LeaveForm, UpdateFormAdmin
+    SearchForm, LeaveForm, UpdateFormAdmin,ChangePasswordForm
 from ..models import Department, Role, Leave
 from . import admin
 from .. import db
@@ -151,8 +153,7 @@ def add_role():
             flash('You have successfully added a new role.')
         except Exception as e:
             logger.error('role cannot be added')
-
-            flash(e)
+            flash('role name already exists')
 
 
         return redirect(url_for('admin.list_roles'))
@@ -207,15 +208,20 @@ def delete_role(id):
 @login_required
 def list_employees():
     check_admin()
+    page = request.args.get('page', 1, type=int)
+    employees = Employee.query.paginate(page=page, per_page=5)
     logger.info('employees list shown from redis')
-    employees=Employee.query.all()
-    return render_template('admin/employees/employees.html',
-                           employees=employees, title='Employees')
+    return render_template('admin/employees/employees.html', employees=employees, title='Employees')
+
+    #employees=Employee.query.all()
+    #return render_template('admin/employees/employees.html',
+     #                      employees=employees, title='Employees')
 
 
 @admin.route('/sub')
 @login_required
 def view_sub():
+    check_manager()
     logged_in=current_user.name
     employees = Employee.query.filter_by(manager=logged_in).all()
     logger.info('subordinates list shown')
@@ -332,6 +338,7 @@ def edit_employee(id):
     employee = Employee.query.get_or_404(id)
     form = EmployeeEditForm(obj=employee)
     if form.validate_on_submit():
+
         employee.email = form.email.data
         employee.name = form.name.data
         employee.designation = form.designation.data
@@ -340,6 +347,7 @@ def edit_employee(id):
         employee.pNumber = form.pNumber.data
         employee.manager = str(form.manager.data)[11:-1]
         employee.age = form.age.data
+
         try:
             db.session.commit()
 
@@ -348,7 +356,8 @@ def edit_employee(id):
                 'name': employee.name,
                 'designation': employee.designation,
                 'manager': employee.manager,
-                'age': employee.age
+                'age': employee.age,
+                'photo':employee.photo
 
             }
             redisClient.hmset('e' + str(employee.id), body)
@@ -409,7 +418,7 @@ def view_profile():
 @login_required
 def view_profile_redis():
     id='e' + str(current_user.id)
-    val = redisClient.hmget(id, 'name', 'designation', 'manager','age')
+    val = redisClient.hmget(id, 'name', 'designation', 'manager','age','photo')
     return render_template('admin/employees/profile_redis.html',action="edit",id=id,
                            val=val,title='Edit Employee')
 
@@ -460,6 +469,9 @@ def add_employee():
        #emp=str(form.manager.data)[11:-1]
        #print(emp)
        #manager = Employee.query.filter_by(name=emp).first()
+       f = form.photo.data
+       filename = secure_filename(f.filename)
+       f.save('app/static/' + filename)
        employee = Employee(email=form.email.data,name=form.name.data,
                             designation=form.designation.data,
                             salary=form.salary.data,
@@ -467,11 +479,11 @@ def add_employee():
                             manager=str(form.manager.data)[11:-1],
                             pNumber=form.pNumber.data,
                             password=form.password.data,
-                            age=form.age.data,isManager=form.isManager.data)
+                            age=form.age.data,isManager=form.isManager.data,photo=filename)
        try:
            db.session.add(employee)
            db.session.commit()
-           body = {'id':employee.id,'name': employee.name,'designation': employee.designation,'manager':employee.manager,'age':employee.age}
+           body = {'id':employee.id,'name': employee.name,'designation': employee.designation,'manager':employee.manager,'age':employee.age,'photo':employee.photo}
            redisClient.lpush('c', pickle.dumps(employee))
            es.index(index='contents2', doc_type='title', id=employee.id, body=body)
            redisClient.hmset('e' + str(employee.id), body)
@@ -532,8 +544,13 @@ def give_assessment():
             flash('You have successfully submitted the assessment.')
             return redirect(url_for('admin.list_employees1'))
         except Exception as e:
+            flash('Please select a value first ')
             logger.error('assesment cannot be given')
-            print str(e)
+            flash(str(e))
+    else:
+        if form.errors:
+            flash('Please select a value')
+
     return render_template('admin/employees/assessment.html',
                             form=form, title='Assessment')
 
@@ -583,6 +600,12 @@ class holidays1(object):
         self.price = price
 
 
+class holidays2(object):
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+
 @admin.route('/holidaylist')
 @login_required
 def holidays():
@@ -590,16 +613,36 @@ def holidays():
     #leave=Leave.query.filter_by(id=logged_in).first()
     #leave=leave.leave_status
     in_holidays = [
-    holidays1('26-01-2019','Republic Day India'),
-    holidays1('21-03-2019', 'Holi'),
-    holidays1('1-05-2019', 'Maharashtra Day'),
-    holidays1( '15-08-2019','Independence Day India'),
-    holidays1 ('6-09-2019', 'Gauri Poojan'),
-     holidays1( '2-10-2019', 'Gandhi Jayanti'),
-     holidays1('29-10-2019', 'Bhaubeej')
+    holidays2('26-01-2019','Republic Day India'),
+    holidays2('21-03-2019', 'Holi'),
+    holidays2('1-05-2019', 'Maharashtra Day'),
+    holidays2( '15-08-2019','Independence Day India'),
+    holidays2 ('6-09-2019', 'Gauri Poojan'),
+     holidays2( '2-10-2019', 'Gandhi Jayanti'),
+     holidays2('29-10-2019', 'Bhaubeej')
     ]
 
     return render_template('admin/employees/holidays.html',in_holidays=in_holidays)
+
+
+@admin.route('/holidaylist1')
+@login_required
+def holidays1():
+    check_manager()
+    #logged_in=current_user
+    #leave=Leave.query.filter_by(id=logged_in).first()
+    #leave=leave.leave_status
+    in_holidays = [
+    holidays2('26-01-2019','Republic Day India'),
+    holidays2('21-03-2019', 'Holi'),
+    holidays2('1-05-2019', 'Maharashtra Day'),
+    holidays2( '15-08-2019','Independence Day India'),
+    holidays2 ('6-09-2019', 'Gauri Poojan'),
+     holidays2( '2-10-2019', 'Gandhi Jayanti'),
+     holidays2('29-10-2019', 'Bhaubeej')
+    ]
+
+    return render_template('admin/employees/holidays1.html',in_holidays=in_holidays)
 
 
 @login_required
@@ -651,15 +694,23 @@ def leave_grant():
     logged_in=current_user.name
     employee = Employee.query.filter_by(manager=logged_in).all()
     emp_on_leave=[]
+    emp_on_leave1 = []
+    emp_id=[]
+    emp_id1 = []
     for emp in employee:
         l1=Leave.query.filter_by(name=emp.name).all()
         for leave in l1:
             if  leave.leave_status=='pending':
+                emp_id.append(emp)
                 emp_on_leave.append(leave)
+            else:
+                emp_id1.append(emp)
+                emp_on_leave1.append(leave)
+
 
 
     return render_template('admin/departments/leaves.html',
-                           leaves=emp_on_leave, title="Leaves")
+                           leaves_zip=zip(emp_on_leave,emp_id),leaves1_zip=zip(emp_on_leave1,emp_id1), title="Leaves")
 
 
 @admin.route('/leave_confirm/<int:id>', methods=['GET', 'POST'])
@@ -732,6 +783,24 @@ def get_bot_response():
         if ans.confidence < 0.6:
             return 'sorry i didnt understand'
         return str(ans)
+
+@admin.route('/change_password',methods=['get','post'])
+@login_required
+def change_password():
+    employee = Employee.query.filter_by(name=current_user.name).first()
+    form = ChangePasswordForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        employee.password=form.password.data
+        try:
+            db.session.commit()
+            flash('successfully changed password')
+        except Exception as e:
+            flash('cannot change')
+
+    else:
+        flash(form.errors)
+    return render_template('admin/employees/change_password.html',
+                           employee=employee, form=form)
 
 
 

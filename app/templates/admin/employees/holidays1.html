@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #aec251;
+  color: white;
+}
+ .back{
+   background-color: #aec251;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    }
+</style>
+</head>
+<br>
+
+<br>
+<center><h2>Holidays</h2></center>
+<br>
+
+<div><table border="2" padding = "5" align="center" id="customers">
+
+         <thead>
+
+                 <tr>
+              <th>   <center> Date </center></th>
+               <th>   <center> Holiday </center></th>
+            </tr>
+
+         </thead>
+
+         <tbody>
+            {% for x in in_holidays %}
+
+            <tr>
+
+                  <td><center>{{x.name}}</center></td>
+                  <td><center>{{x.price}}</center></td>
+
+               </tr>
+
+
+            {% endfor %}
+         </tr>
+         </tbody>
+      </table>
+
+    <br>
+    <center>
+             <a class="back" href="{{ url_for('admin.list_leaves') }}">Leave List</a>
+          <a class="back" href="{{ url_for('admin.leave_grant') }}">Approve Leaves</a>
+    </center>
+</div>
+
+</body>
+</html>

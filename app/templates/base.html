@@ -6,6 +6,19 @@
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <style>
+        img {
+  border-radius: 50%;
+  height:20px;
+  width:20px;
+  margin-right:20px;
+  margin-top:17px;
+
+}
+    </style>
+
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -17,7 +30,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand topnav" href="{{ url_for('home.homepage') }}">Employee Management System</a>
+              <a class="navbar-brand topnav" href="{{ url_for('home.homepage') }}">EMS</a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
              <ul class="nav navbar-nav navbar-right">
@@ -40,7 +53,8 @@
                  <li><a href="{{url_for('admin.view_assessment')}}">Assessment</a></li>
                  {% endif %}
                  <li><a href="{{ url_for('admin.view_profile') }}">Profile</a></li>
-                 <li><a href="{{ url_for('admin.leave_grant') }}">Holidays</a></li>
+                 <li><a href="{{ url_for('admin.holidays1') }}">Holidays</a></li>
+
                  <li><a href="{{ url_for('admin.help') }}"><i class="fa fa-comments"></i>Help</a></li>
                  {% else %}
                  <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
@@ -50,12 +64,16 @@
                  {% endif %}
                  <li><a href="{{ url_for('admin.view_profile') }}">Profile</a></li>
                  <li><a href="{{ url_for('admin.holidays') }}">Holidays</a></li>
+
                  <li><a href="{{ url_for('admin.help') }}"><i class="fa fa-comments"></i>Help</a></li>
                  {% endif %}
       {% endif %}
       <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
       <li><a><i class="fa fa-user"></i>  Hi, {{ current_user.name }}!</a></li>
-    {% else %}
+                 {% if not current_user.is_admin %}
+                 <li><img src="{{ url_for('static', filename=current_user.photo) }}"></li>
+                 {% endif %}
+                 {% else %}
       <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
       <li><a href="{{ url_for('auth.login') }}">Login</a></li>
     {% endif %}

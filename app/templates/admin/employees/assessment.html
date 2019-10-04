@@ -1,6 +1,6 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% extends "base.html" %}
-
+{% import "bootstrap/utils.html" as utils %}
 {% block title %}
 Assessment
 {% endblock %}
@@ -20,6 +20,9 @@ Assessment
  <div class="outer">
     <div class="middle">
       <div class="inner">
+           <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
         <div class="center">
                 <h1>Assessment</h1>
             <br/>

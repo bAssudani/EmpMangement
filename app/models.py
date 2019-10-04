@@ -25,6 +25,7 @@ class Employee(UserMixin, db.Model):
     assessment = db.Column(db.String(200))
     feedback = db.Column(db.String(200))
     leave_id = db.Column(db.Integer, db.ForeignKey('leaves.id'))
+    photo=db.Column(db.LargeBinary)
 
 
     @property

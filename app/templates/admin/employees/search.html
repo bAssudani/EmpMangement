@@ -26,8 +26,6 @@
                   <th width="30%"> Designation </th>
                   <th width="30%"> Manager </th>
                     <th width="10%"> Age </th>
-
-
                 </tr>
               </thead>
               <tbody id="myList">
@@ -80,6 +78,10 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+  $.ajax({
+         type : 'POST',
+         url : '/search'
+        })
 });
 </script>
 
