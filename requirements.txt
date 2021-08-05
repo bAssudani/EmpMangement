@@ -1,4 +1,4 @@
-AccessControl==4.1
+AccessControl==4.3
 Acquisition==4.6
 astroid==2.2.5
 AuthEncoding==4.1
