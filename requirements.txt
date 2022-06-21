@@ -31,7 +31,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 MultiMapping==4.1
 normalize==1.0.4
-numpy==1.17.1
+numpy==1.22.0
 pandas==0.25.1
 PasteDeploy==2.0.1
 Persistence==3.0
